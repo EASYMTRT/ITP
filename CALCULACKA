@@ -36,7 +36,7 @@ namespace Kalkulacka
             {
                 Console.WriteLine("Chybný vstup");
             }
-            Console.WriteLine("Napiš druhý vstup: ");
+            Console.WriteLine("Napiš druhé číslo: ");
             if (!float.TryParse(Console.ReadLine(), out float b))
             {
                 Console.WriteLine("Chybný vstup");
