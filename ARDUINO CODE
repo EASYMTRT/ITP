@@ -1,0 +1,33 @@
+int led1Pin = 9;
+int led2Pin = 8;
+int buttonPin = 7;
+int Delay; 
+int buttonstate = 0;
+
+void setup()
+{
+  pinMode(led1Pin, OUTPUT);
+  pinMode(led2Pin, OUTPUT);
+  pinMode(buttonPin, INPUT);
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+  buttonstate = digitalRead(buttonPin);
+  Delay = analogRead(A0);
+  if(buttonstate == LOW){
+    digitalWrite(led2Pin, LOW);
+    digitalWrite(led1Pin, HIGH);
+    delay(Delay);
+    digitalWrite(led1Pin, LOW);
+    digitalWrite(led2Pin, HIGH);
+	delay(Delay);
+  }else{
+    digitalWrite(led1Pin, LOW);
+  	digitalWrite(led2Pin, HIGH);
+  	delay(Delay);
+  	digitalWrite(led2Pin, LOW);
+    delay(Delay);
+  };
+}
