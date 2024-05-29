@@ -1,0 +1,22 @@
+CREATE TABLE Autor(ID int Primary Key, Jmeno text);
+CREATE TABLE Knihy(IDKnihy int , JmenoKnihy text, JmenoAutora text);
+
+INSERT INTO Autor VALUES(1,"Eduard Petiška");
+INSERT INTO Autor VALUES(2,"John Tolkien");
+INSERT INTO Autor VALUES(3,"Christopher Tolkien");
+INSERT INTO Autor VALUES(4,"Igor Hnizdo");
+INSERT INTO Autor VALUES(5,"Arnost Lustig");
+INSERT INTO Autor VALUES(6,"Ladislav Smoljak");
+
+
+INSERT INTO Knihy VALUES(1, "Hobbit", "John Tolkien");
+INSERT INTO Knihy VALUES(2, "Pan Prstenu", "John Tolkien");
+INSERT INTO Knihy VALUES(3, "Silmarilion", "Christopher Tolkien");
+INSERT INTO Knihy VALUES(4, "Ztrata tridni knihy", "Ladislav Smoljak");
+
+SElECT Autor.Jmeno
+FROM Autor
+INNER JOIN Knihy ON Autor.JmenoAutora = Knihy.JmenoAutora;
+
+SELECT * FROM Knihy
+WHERE Knihy.JmenoAutora = "John Tolkien";
