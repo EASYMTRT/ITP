@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kalkulacka
+{
+    internal class Program
+    {
+        static void UlozeniVysledku(int vysledek)//Pro uložení výsledků použijeme novej void, abychom si kód rozdělili.
+        {
+            string filePath = "result.txt";
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                writer.WriteLine(vysledek);
+            }
+            Console.WriteLine($"Result {vysledek} saved to {filePath}");
+        }
+        static void Main()
+        {
+            
+            Console.WriteLine("Napiš první číslo: ");
+            if (!float.TryParse(Console.ReadLine(), out float a))
+            {
+                Console.WriteLine("Chybný vstup");
+                Main();
+            }
+            Console.WriteLine("Zvol operaci [+ -]: ");
+            string symbol = Console.ReadLine();
+            if (symbol == "+" || symbol == "-")
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Chybný vstup");
+            }
+            Console.WriteLine("Napiš druhý vstup: ");
+            if (!float.TryParse(Console.ReadLine(), out float b))
+            {
+                Console.WriteLine("Chybný vstup");
+                Main();
+            }
+            float vysledek = 0;
+            switch (symbol)
+            {
+                case "+":
+                    vysledek = a + b;
+                    break;
+                case "-":
+                    vysledek = a - b;
+                    break;
+            }
+
+            Console.WriteLine(vysledek);
+            UlozeniVysledku(Convert.ToInt32(vysledek)); // Zavoláme metodu pro uložení výsledku
+            Main(); // Restartujeme program pro další výpočet
+        }
+        
+    }
+}
